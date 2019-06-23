@@ -1,0 +1,8 @@
+.ui.container {
+  margin-top: 50px;
+  margin-bottom: 100px;
+}
+
+.ui.container > section:not(:last-child) {
+  margin-bottom: 30px;
+}

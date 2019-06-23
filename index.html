@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>awesome-blog</title>
+  <script src="js/helper.js"></script>
+  <!-- <script src="https://www.gstatic.com/firebasejs/5.8.6/firebase.js"></script> -->
+  <!-- Firebase App is always required and must be first -->
+  <script src="https://www.gstatic.com/firebasejs/5.8.6/firebase-app.js"></script>
+  <!-- Add additional services that you want to use -->
+  <script src="https://www.gstatic.com/firebasejs/5.8.6/firebase-firestore.js"></script>
+  <script src="js/firebase.js"></script>
+  <!-- jQuery -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+  <!-- Semantic UI -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+  <link rel="stylesheet" href="css/index.css">
+  <script defer src="js/index.js"></script>
+</head>
+
+<body>
+  <div class="ui container">
+    <section class="currently-login">
+      <div class="ui segment">
+        <form class="ui form">
+          <h4 class="ui dividing header">Currently Login</h4>
+          <div class="three fields">
+            <div class="field">
+              <label>ID</label>
+              <input type="text" name="id" placeholder="id" class="id" value="xrMZTD8Vuk4bMQEcFNvJ" readonly="" />
+            </div>
+            <div class="field">
+              <label>Email</label>
+              <input type="email" name="email" placeholder="***@gmail.com" class="email" value="aaron_lu1@gmail.com"
+                readonly="" />
+            </div>
+            <div class="field">
+              <label>Name</label>
+              <input type="text" name="name" placeholder="name" class="name" value="Aaron" readonly="" />
+            </div>
+          </div>
+          <div class="ui inverted segment">
+            <div class="ui inverted form">
+              <h4 class="ui dividing inverted header">Change User</h4>
+              <div class="inverted field">
+                <label>User</label>
+                <div class="ui selection dropdown">
+                  <input type="hidden" name="user">
+                  <i class="dropdown icon"></i>
+                  <div class="default text">user</div>
+                </div>
+              </div>
+              <button class="ui inverted button change-user" type="submit">Change</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+    <section class="registeration">
+      <div class="ui segment">
+        <form class="ui form">
+          <h4 class="ui dividing header">Registeration</h4>
+          <div class="two fields">
+            <div class="field">
+              <label>Email</label>
+              <input type="email" name="email" placeholder="***@gmail.com" class="email">
+            </div>
+            <div class="field">
+              <label>Name</label>
+              <input type="text" name="name" placeholder="name" class="name">
+            </div>
+          </div>
+          <button class="ui button registeration" type="submit">Submit</button>
+        </form>
+      </div>
+    </section>
+    <section class="friend-requesting">
+      <div class="ui segment">
+        <form class="ui form">
+          <h4 class="ui dividing header">Friends Requesting</h4>
+          <div class="field">
+            <label>User</label>
+            <div class="ui selection dropdown">
+              <input type="hidden" name="user">
+              <i class="dropdown icon"></i>
+              <div class="default text">user</div>
+            </div>
+          </div>
+          <div class="ui success message">
+            <div class="header">Successfully Sending Request!</div>
+            <p>You have send <em class="friend-name"></em> a friend request.</p>
+          </div>
+          <div class="ui warning message">
+            <div class="header">Could you check something!</div>
+            <p>That user is not found in our database.</p>
+          </div>
+          <button class="ui button friend-requesting" type="submit">Submit</button>
+        </form>
+      </div>
+    </section>
+    <section class="friends-list">
+      <div class="ui segment">
+        <h4 class="ui dividing header">Friends List</h4>
+        <div class="ui middle aligned divided list friends">
+          <div class="item">
+            <div class="right floated content">
+              <div class="ui button">Add</div>
+            </div>
+            <div class="ui fluid placeholder">
+              <div class="image header">
+                <div class="line"></div>
+                <div class="line"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="new-post">
+      <div class="ui segment">
+        <form class="ui form">
+          <h4 class="ui dividing header">New Post</h4>
+          <div class="field">
+            <label>Title</label>
+            <input type="text" name="title" placeholder="title" class="title">
+          </div>
+          <div class="field">
+            <label>Content</label>
+            <textarea rows="2" class="content"></textarea>
+          </div>
+          <div class="inline fields">
+            <label for="tags">Tags:</label>
+            <div class="field">
+              <div class="ui radio checkbox">
+                <input type="radio" name="tags" tabindex="0" class="hidden">
+                <label>Beauty</label>
+              </div>
+            </div>
+            <div class="field">
+              <div class="ui radio checkbox">
+                <input type="radio" name="tags" tabindex="0" class="hidden">
+                <label>Gossiping</label>
+              </div>
+            </div>
+            <div class="field">
+              <div class="ui radio checkbox">
+                <input type="radio" name="tags" tabindex="0" class="hidden">
+                <label>Joke</label>
+              </div>
+            </div>
+            <div class="field">
+              <div class="ui radio checkbox">
+                <input type="radio" name="tags" tabindex="0" class="hidden">
+                <label>School Life</label>
+              </div>
+            </div>
+          </div>
+          <button class="ui button post" type="submit">Submit</button>
+        </form>
+      </div>
+    </section>
+    <section class="post-searching">
+      <div class="ui segment">
+        <form class="ui form">
+          <h4 class="ui dividing header">Posts Searching</h4>
+          <div class="field">
+            <label>User</label>
+            <div class="ui selection dropdown">
+              <input type="hidden" name="user">
+              <i class="dropdown icon"></i>
+              <div class="default text">user</div>
+            </div>
+          </div>
+          <div class="inline fields">
+            <label for="tags">Tags:</label>
+            <div class="field">
+              <div class="ui radio checkbox">
+                <input type="radio" name="tags" tabindex="0" class="hidden">
+                <label>Beauty</label>
+              </div>
+            </div>
+            <div class="field">
+              <div class="ui radio checkbox">
+                <input type="radio" name="tags" tabindex="0" class="hidden">
+                <label>Gossiping</label>
+              </div>
+            </div>
+            <div class="field">
+              <div class="ui radio checkbox">
+                <input type="radio" name="tags" tabindex="0" class="hidden">
+                <label>Joke</label>
+              </div>
+            </div>
+            <div class="field">
+              <div class="ui radio checkbox">
+                <input type="radio" name="tags" tabindex="0" class="hidden">
+                <label>School Life</label>
+              </div>
+            </div>
+          </div>
+          <button class="ui button post-searching" type="submit">Submit</button>
+        </form>
+      </div>
+    </section>
+    <section class="posts">
+      <div class="ui segment">
+        <h4 class="ui dividing header">Posts</h4>
+        <div class="ui centered cards">
+          <div class="card">
+            <div class="content">
+              <div class="header">Create your first post.</div>
+              <div class="meta">Member</div>
+              <div class="description">
+                <div class="ui placeholder">
+                  <div class="paragraph">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="extra content">
+                <div class="right floated">
+                  <a class="ui red label">New</a>
+                  <a class="ui teal label">Featured</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</body>
+
+</html>
